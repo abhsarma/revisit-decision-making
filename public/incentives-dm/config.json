@@ -1,0 +1,487 @@
+{
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "studyMetadata": {
+        "title": "Decision-making under Uncertainty using Visualizations",
+        "version": "pilot",
+        "authors": ["Abhraneel Sarma"],
+        "date": "2026-02-08",
+        "description": "A simple decision-making study",
+        "organizations": ["Graz University of Technology"]
+    },
+    "uiConfig": {
+        "contactEmail": "asarma@tugraz.at",
+        "helpTextPath": "incentives-dm/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "autoDownloadStudy": false,
+        "withSidebar": true,
+        "urlParticipantIdParam": "PROLIFIC_PID",
+        "participantNameField": "introduction.prolificId",
+        "studyEndMsg": "Thank you for completing the study! Please wait while we automatically redirect you to Prolific. Or you can click on this [link](https://app.prolific.com/submissions/complete?cc=C13Y4AKQ)",
+        "autoRedirectURL": "https://app.prolific.com/submissions/complete?cc=C13Y4AKQ",
+        "autoRedirectDelay": 10000
+    },
+    "baseComponents": {
+        "training": {
+            "type": "react-component",
+            "path": "incentives-dm/assets/03-training.tsx",
+            "response": [],
+            "provideFeedback": true,
+            "allowFailedTraining": true,
+            "trainingAttempts": 3,
+            "nextButtonEnableTime": 10000,
+            "instructionLocation": "aboveStimulus"
+        },
+        "trial": {
+            "type": "react-component",
+            "response": [{
+                "id": "decision",
+                "prompt": "Based on the forecast above, would you salt the road?",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "radio",
+                "options": ["Yes", "No"]
+            }, {
+                "id": "prolificId",
+                "prompt": "",
+                "required": false,
+                "hidden": true,
+                "paramCapture": "PROLIFIC_PID",
+                "type": "reactive"
+            }],
+            "path": "incentives-dm/assets/05-trial.tsx",
+            "instructionLocation": "aboveStimulus"
+        },
+        "summary": {
+            "type": "react-component", 
+            "path": "incentives-dm/assets/06-summary.tsx",
+            "response": []
+        }
+    },
+    "components": {
+        "introduction-base": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/00-intro-base.md",
+            "response": [{
+                "id": "prolificId",
+                "prompt": "Prolific ID:",
+                "required": false,
+                "location": "belowStimulus",
+                "type": "shortText",
+				"paramCapture": "PROLIFIC_PID",
+                "placeholder": "Prolific ID"
+            }]
+        },
+        "introduction-inc": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/00-intro-inc.md",
+            "response": [{
+                "id": "prolificId",
+                "prompt": "Prolific ID:",
+                "required": false,
+                "location": "belowStimulus",
+                "type": "shortText",
+				"paramCapture": "PROLIFIC_PID",
+                "placeholder": "Prolific ID"
+            }]
+        },
+        "consent-base": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/01-consent-base.md",
+            "previousButton": true,
+            "previousButtonText": "Back",
+            "response": [
+                {
+                    "id": "consentApproval",
+                    "prompt": "By clicking on 'Yes' below, you indicate that you have understood the Information Sheet and agree to participate in this study.",
+                    "type": "radio",
+                    "options": ["Yes", "No"]
+                }
+            ]
+        },
+        "consent-inc": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/01-consent-inc.md",
+            "previousButton": true,
+            "previousButtonText": "Back",
+            "response": [
+                {
+                    "id": "consentApproval",
+                    "prompt": "By clicking on 'Yes' below, you indicate that you have understood the Information Sheet and agree to participate in this study.",
+                    "type": "radio",
+                    "options": ["Yes", "No"]
+                }
+            ]
+        },
+        "tutorial-ci": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/02-tutorial-ci.md",
+            "response": []
+        },
+        "tutorial-dens": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/02-tutorial-dens.md",
+            "response": []
+        }, 
+        "training-1-ci": {
+            "baseComponent": "training", 
+            "parameters": {"index": 1, "vis": "ci", "target": 13}, 
+            "response": [{
+                "id": "trainingProb-1",
+                "prompt": "What is the probability that the temperature falls below 13°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["5", "10", "7", "15"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-1", "answer": 10}], 
+            "helpTextPath": "incentives-dm/assets/help-ci.md"
+        },
+        "training-2-ci": {
+            "baseComponent": "training", 
+            "parameters": {"index": 2, "vis": "ci", "target": 13}, 
+            "response": [{
+                "id": "trainingProb-2",
+                "prompt": "What is the probability that the temperature falls below 13°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["15", "25", "20", "30"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-2", "answer": 25}], 
+            "helpTextPath": "incentives-dm/assets/help-ci.md"
+        },
+        "training-3-ci": {
+            "baseComponent": "training", 
+            "parameters": {"index": 3, "vis": "ci", "target": 25}, 
+            "response": [{
+                "id": "trainingProb-3",
+                "prompt": "What is the probability that the temperature falls below 25°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["55", "60", "65", "70"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-3", "answer": 60}], 
+            "helpTextPath": "incentives-dm/assets/help-ci.md"
+        },
+        "training-4-ci": {
+            "baseComponent": "training", 
+            "parameters": {"index": 4, "vis": "ci", "target": 26}, 
+            "response": [{
+                "id": "trainingProb-4",
+                "prompt": "What is the probability that the temperature falls below 26°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["89", "95", "92", "99"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-4", "answer": 95}], 
+            "helpTextPath": "incentives-dm/assets/help-ci.md"
+        },
+        "training-1-dens": {
+            "baseComponent": "training", 
+            "parameters": {"index": 1, "vis": "dens", "target": 13}, 
+            "response": [{
+                "id": "trainingProb-1",
+                "prompt": "What is the probability that the temperature falls below 13°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["5", "10", "7", "15"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-1", "answer": 10}], 
+            "helpTextPath": "incentives-dm/assets/help-dens.md"
+        },
+        "training-2-dens": {
+            "baseComponent": "training", 
+            "parameters": {"index": 2, "vis": "dens", "target": 13}, 
+            "response": [{
+                "id": "trainingProb-2",
+                "prompt": "What is the probability that the temperature falls below 21°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["15", "25", "20", "30"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-2", "answer": 25}], 
+            "helpTextPath": "incentives-dm/assets/help-dens.md"
+        },
+        "training-3-dens": {
+            "baseComponent": "training", 
+            "parameters": {"index": 3, "vis": "dens", "target": 25}, 
+            "response": [{
+                "id": "trainingProb-3",
+                "prompt": "What is the probability that the temperature falls below 25°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["55", "60", "65", "70"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-3", "answer": 60}], 
+            "helpTextPath": "incentives-dm/assets/help-dens.md"
+        },
+        "training-4-dens": {
+            "baseComponent": "training", 
+            "parameters": {"index": 4, "vis": "dens", "target": 26}, 
+            "response": [{
+                "id": "trainingProb-4",
+                "prompt": "What is the probability that the temperature falls below 26°C?",
+                "type": "radio",
+                "optionOrder": "random",
+                "horizontal": true,
+                "options": ["89", "95", "92", "99"]
+            }],
+            "correctAnswer": [{"id": "trainingProb-4", "answer": 95}], 
+            "helpTextPath": "incentives-dm/assets/help-dens.md"
+        },
+        "task-details-base": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/04-instructions-base.md",
+            "response": []
+        },
+        "task-details-inc": {
+            "type": "markdown",
+            "path": "incentives-dm/assets/04-instructions-inc.md",
+            "response": []
+        },
+        "trial-1-ci": {"baseComponent": "trial", "parameters": {"index": 1, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-2-ci": {"baseComponent": "trial", "parameters": {"index": 2, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-3-ci": {"baseComponent": "trial", "parameters": {"index": 3, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-4-ci": {"baseComponent": "trial", "parameters": {"index": 4, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-5-ci": {"baseComponent": "trial", "parameters": {"index": 5, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-6-ci": {"baseComponent": "trial", "parameters": {"index": 6, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-7-ci": {"baseComponent": "trial", "parameters": {"index": 7, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-8-ci": {"baseComponent": "trial", "parameters": {"index": 8, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-9-ci": {"baseComponent": "trial", "parameters": {"index": 9, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-10-ci": {"baseComponent": "trial", "parameters": {"index": 10, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-11-ci": {"baseComponent": "trial", "parameters": {"index": 11, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-12-ci": {"baseComponent": "trial", "parameters": {"index": 12, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-13-ci": {"baseComponent": "trial", "parameters": {"index": 13, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-14-ci": {"baseComponent": "trial", "parameters": {"index": 14, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-15-ci": {"baseComponent": "trial", "parameters": {"index": 15, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-16-ci": {"baseComponent": "trial", "parameters": {"index": 16, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-17-ci": {"baseComponent": "trial", "parameters": {"index": 17, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-18-ci": {"baseComponent": "trial", "parameters": {"index": 18, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "trial-1-dens": {"baseComponent": "trial", "parameters": {"index": 1, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-2-dens": {"baseComponent": "trial", "parameters": {"index": 2, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-3-dens": {"baseComponent": "trial", "parameters": {"index": 3, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-4-dens": {"baseComponent": "trial", "parameters": {"index": 4, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-5-dens": {"baseComponent": "trial", "parameters": {"index": 5, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-6-dens": {"baseComponent": "trial", "parameters": {"index": 6, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-7-dens": {"baseComponent": "trial", "parameters": {"index": 7, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-8-dens": {"baseComponent": "trial", "parameters": {"index": 8, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-9-dens": {"baseComponent": "trial", "parameters": {"index": 9, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-10-dens": {"baseComponent": "trial", "parameters": {"index": 10, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-11-dens": {"baseComponent": "trial", "parameters": {"index": 11, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-12-dens": {"baseComponent": "trial", "parameters": {"index": 12, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-13-dens": {"baseComponent": "trial", "parameters": {"index": 13, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-14-dens": {"baseComponent": "trial", "parameters": {"index": 14, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-15-dens": {"baseComponent": "trial", "parameters": {"index": 15, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-16-dens": {"baseComponent": "trial", "parameters": {"index": 16, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-17-dens": {"baseComponent": "trial", "parameters": {"index": 17, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "trial-18-dens": {"baseComponent": "trial", "parameters": {"index": 18, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "attnCheck-low-ci": {"baseComponent": "trial", "parameters": {"index": -1, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "attnCheck-high-ci": {"baseComponent": "trial", "parameters": {"index": -2, "vis": "ci"}, "helpTextPath": "incentives-dm/assets/help-full-ci.md"},
+        "attnCheck-low-dens": {"baseComponent": "trial", "parameters": {"index": -1, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "attnCheck-high-dens": {"baseComponent": "trial", "parameters": {"index": -2, "vis": "dens"}, "helpTextPath": "incentives-dm/assets/help-full-dens.md"},
+        "qual-q-base": {
+            "baseComponent": "summary", 
+            "parameters": {"inc": "base"},
+            "response": [{
+                "id": "prolificId",
+                "prompt": "",
+                "required": false,
+                "hidden": true,
+                "paramCapture": "PROLIFIC_PID",
+                "type": "reactive"
+            }, {
+                "id": "qual-strategy",
+                "prompt": "Please describe the strategy that you used in deciding whether or not to send salt",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "longText"
+            }, {
+                "id": "qual-incentive-freq",
+                "prompt": "How often do you encounter surveys with performance-based bonuses?",
+                "secondaryText": "Decision-making studies such as this one often include performance-based bonuses (for example, instead of a guaranteed amount of $3, you would have been paid a guaranteed amount of $1.5, and awarded a bonus of $0.5 for every $1000 left in a bank account).",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "likert",
+                "numItems": 5,
+                "leftLabel": "Never",
+                "rightLabel": "Very Often",
+                "labelLocation": "inline"
+            }, {
+                "id": "qual-incentives-history",
+                "prompt": "If you have encountered performance-based bonuses in surveys previously, what has been your experience with receiving such bonuses?",
+                "secondaryText": "If you have not encountered performance-based bonuses in surveys, please write 'N/A' in the text box",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "longText"
+            }, {
+                "id": "qual-incentive-effect",
+                "prompt": "If you would have been paid a guaranteed amount of $1.5 and awarded a bonus of $0.5 for every $1000 left in a bank account (instead of the guaranteed amount of $3), how do you think your performance would have changed?",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "longText"
+            }]
+        },
+        "qual-q-inc": {
+            "baseComponent": "summary", 
+            "parameters": {"inc": "inc"},
+            "response": [{
+                "id": "prolificId",
+                "prompt": "",
+                "required": false,
+                "hidden": true,
+                "paramCapture": "PROLIFIC_PID",
+                "type": "reactive"
+            },{
+                "id": "qual-strategy",
+                "prompt": "Please describe the strategy that you used in deciding whether or not to send salt",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "longText"
+            }, {
+                "id": "qual-incentive-freq",
+                "prompt": "How often do you encounter surveys with performance-based bonuses?",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "likert",
+                "numItems": 5,
+                "leftLabel": "Never",
+                "rightLabel": "Very Often",
+                "labelLocation": "inline"
+            }, {
+                "id": "qual-incentives-history",
+                "prompt": "If you have encountered performance-based bonuses in surveys previously, what has been your experience with receiving such bonuses?",
+                "secondaryText": "If you have not encountered performance-based bonuses in surveys, please write 'N/A' in the text box",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "longText"
+            }, {
+                "id": "qual-incentive-effect",
+                "prompt": "If you were given a guaranteed amount of $3 (instead of the current reward structure——guaranteed amount of $1.5 and bonus of $0.5 for every $1000 left in a bank account that you received), how do you think your performance would have changed?",
+                "required": true,
+                "location": "belowStimulus",
+                "type": "longText"
+            }]
+        }
+    },
+    "sequence": {
+        "order": "fixed",
+        "components": [{
+                "id": "base",
+                "conditional": true,
+                "order": "fixed",
+                "components": ["introduction-base", "consent-base"]
+            }, {
+                "id": "inc",
+                "conditional": true,
+                "order": "fixed",
+                "components": ["introduction-inc", "consent-inc"]
+            }, {
+                "id": "ci",
+                "conditional": true,
+                "order": "fixed",
+                "components": [
+                    "tutorial-ci",                     
+                    {   
+                        "id": "training-ci",
+                        "order": "random",
+                        "components": ["training-1-ci", "training-2-ci", "training-3-ci", "training-4-ci"]
+                    }
+                ]
+            }, {
+                "id": "dens",
+                "conditional": true,
+                "order": "fixed",
+                "components": [
+                    "tutorial-dens",
+                    {
+                        "id": "training-dens",
+                        "order": "random",
+                        "components": ["training-1-dens", "training-2-dens", "training-3-dens", "training-4-dens"]
+                    }
+                ]
+            }, {
+                "id": "base",
+                "conditional": true,
+                "order": "fixed",
+                "components": ["task-details-base"]
+            }, {
+                "id": "inc",
+                "conditional": true,
+                "order": "fixed",
+                "components": ["task-details-inc"]
+            }, {
+                "id": "ci",
+                "conditional": true,
+                "order": "random",
+                "components": [
+                    "trial-1-ci", 
+                    "trial-2-ci", 
+                    "trial-3-ci", 
+                    "trial-4-ci", 
+                    "trial-5-ci", 
+                    "trial-6-ci", 
+                    "trial-7-ci", 
+                    "trial-8-ci", 
+                    "trial-9-ci",
+                    "trial-10-ci", 
+                    "trial-11-ci", 
+                    "trial-12-ci", 
+                    "trial-13-ci", 
+                    "trial-14-ci", 
+                    "trial-15-ci", 
+                    "trial-16-ci", 
+                    "trial-17-ci", 
+                    "trial-18-ci"
+                ],
+                "interruptions": [
+                    {"spacing": "random", "numInterruptions": 1, "components": ["attnCheck-low-ci"]},
+                    {"spacing": "random", "numInterruptions": 1, "components": ["attnCheck-high-ci"]}
+                ]
+            }, {
+                "id": "dens",
+                "conditional": true,
+                "order": "random",
+                "components": [
+                    "trial-1-dens", 
+                    "trial-2-dens", 
+                    "trial-3-dens", 
+                    "trial-4-dens", 
+                    "trial-5-dens", 
+                    "trial-6-dens", 
+                    "trial-7-dens", 
+                    "trial-8-dens", 
+                    "trial-9-dens",
+                    "trial-10-dens", 
+                    "trial-11-dens", 
+                    "trial-12-dens", 
+                    "trial-13-dens", 
+                    "trial-14-dens", 
+                    "trial-15-dens", 
+                    "trial-16-dens", 
+                    "trial-17-dens", 
+                    "trial-18-dens"
+                ],
+                "interruptions": [
+                    {"spacing": "random", "numInterruptions": 1, "components": ["attnCheck-low-dens"]},
+                    {"spacing": "random", "numInterruptions": 1, "components": ["attnCheck-high-dens"]}
+                ]
+            }, {
+                "id": "base",
+                "conditional": true,
+                "order": "fixed",
+                "components": ["qual-q-base"]
+            }, {
+                "id": "inc",
+                "conditional": true,
+                "order": "fixed",
+                "components": ["qual-q-inc"]
+            }
+        ]
+    }
+}
