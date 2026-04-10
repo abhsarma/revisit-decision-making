@@ -10,7 +10,7 @@
 **Supported By**: This research is supported by the Institute of Human-Centered Computing, Graz University of Technology.
 
 **Key Information about this research study**: 
-The following is a short summary of this study to help you decide whether to be a part of this study. Information that is more detailed is explained later on in this form. The purpose of this study is to understand how people make decisions when presented with uncertain information. You will be asked to complete a survey. The survey will consist of a brief training, followed by the actual tasks. For each task, you will have to make a decision based on the graphs presented to you. We expect that participation will take approximately 8-9 mins.
+The following is a short summary of this study to help you decide whether to be a part of this study. Information that is more detailed is explained later on in this form. The purpose of this study is to understand how people make decisions when presented with uncertain information. You will be asked to complete a survey. The survey will consist of a brief training, followed by the actual tasks. For each task, you will have to make a decision based on the graphs presented to you. We expect that participation will take approximately 12 mins.
 
 **Why am I being asked to take part in this research study?**
 We are asking you to take part in this research study because you are over 18 years old, and fluent in English.

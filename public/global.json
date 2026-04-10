@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.0/src/parser/GlobalConfigSchema.json",
-  "configsList": ["decision-making"],
+  "configsList": ["dm-check"],
   "configs": {
-    "decision-making": {
+    "dm-check": {
       "path": "incentives-dm/config.json"
     }
   }

@@ -18,8 +18,8 @@
         "urlParticipantIdParam": "PROLIFIC_PID",
         "participantNameField": "introduction.prolificId",
         "studyEndMsg": "Thank you for completing the study! Please wait while we automatically redirect you to Prolific. Or you can click on this [link](https://app.prolific.com/submissions/complete?cc=C13Y4AKQ)",
-        "autoRedirectURL": "https://app.prolific.com/submissions/complete?cc=C13Y4AKQ",
-        "autoRedirectDelay": 10000
+        "studyEndAutoRedirectURL": "https://app.prolific.com/submissions/complete?cc=C13Y4AKQ",
+        "studyEndAutoRedirectDelay": 10000
     },
     "baseComponents": {
         "training": {
@@ -29,7 +29,6 @@
             "provideFeedback": true,
             "allowFailedTraining": true,
             "trainingAttempts": 3,
-            "nextButtonEnableTime": 10000,
             "instructionLocation": "aboveStimulus"
         },
         "trial": {
@@ -123,12 +122,13 @@
             "path": "incentives-dm/assets/02-tutorial-dens.md",
             "response": []
         }, 
+        
         "training-1-ci": {
             "baseComponent": "training", 
-            "parameters": {"index": 1, "vis": "ci", "target": 13}, 
+            "parameters": {"index": 1, "vis": "ci", "target": 14}, 
             "response": [{
                 "id": "trainingProb-1",
-                "prompt": "What is the probability that the temperature falls below 13°C?",
+                "prompt": "What is the probability that the temperature falls below 14°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
@@ -139,10 +139,10 @@
         },
         "training-2-ci": {
             "baseComponent": "training", 
-            "parameters": {"index": 2, "vis": "ci", "target": 13}, 
+            "parameters": {"index": 2, "vis": "ci", "target": 19}, 
             "response": [{
                 "id": "trainingProb-2",
-                "prompt": "What is the probability that the temperature falls below 13°C?",
+                "prompt": "What is the probability that the temperature falls below 19°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
@@ -153,10 +153,10 @@
         },
         "training-3-ci": {
             "baseComponent": "training", 
-            "parameters": {"index": 3, "vis": "ci", "target": 25}, 
+            "parameters": {"index": 3, "vis": "ci", "target": 21}, 
             "response": [{
                 "id": "trainingProb-3",
-                "prompt": "What is the probability that the temperature falls below 25°C?",
+                "prompt": "What is the probability that the temperature falls below 21°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
@@ -167,10 +167,10 @@
         },
         "training-4-ci": {
             "baseComponent": "training", 
-            "parameters": {"index": 4, "vis": "ci", "target": 26}, 
+            "parameters": {"index": 4, "vis": "ci", "target": 23}, 
             "response": [{
                 "id": "trainingProb-4",
-                "prompt": "What is the probability that the temperature falls below 26°C?",
+                "prompt": "What is the probability that the temperature falls below 23°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
@@ -181,10 +181,10 @@
         },
         "training-1-dens": {
             "baseComponent": "training", 
-            "parameters": {"index": 1, "vis": "dens", "target": 13}, 
+            "parameters": {"index": 1, "vis": "dens", "target": 14}, 
             "response": [{
                 "id": "trainingProb-1",
-                "prompt": "What is the probability that the temperature falls below 13°C?",
+                "prompt": "What is the probability that the temperature falls below 14°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
@@ -195,10 +195,10 @@
         },
         "training-2-dens": {
             "baseComponent": "training", 
-            "parameters": {"index": 2, "vis": "dens", "target": 13}, 
+            "parameters": {"index": 2, "vis": "dens", "target": 19}, 
             "response": [{
                 "id": "trainingProb-2",
-                "prompt": "What is the probability that the temperature falls below 21°C?",
+                "prompt": "What is the probability that the temperature falls below 19°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
@@ -209,10 +209,10 @@
         },
         "training-3-dens": {
             "baseComponent": "training", 
-            "parameters": {"index": 3, "vis": "dens", "target": 25}, 
+            "parameters": {"index": 3, "vis": "dens", "target": 21}, 
             "response": [{
                 "id": "trainingProb-3",
-                "prompt": "What is the probability that the temperature falls below 25°C?",
+                "prompt": "What is the probability that the temperature falls below 21°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
@@ -223,10 +223,10 @@
         },
         "training-4-dens": {
             "baseComponent": "training", 
-            "parameters": {"index": 4, "vis": "dens", "target": 26}, 
+            "parameters": {"index": 4, "vis": "dens", "target": 23}, 
             "response": [{
                 "id": "trainingProb-4",
-                "prompt": "What is the probability that the temperature falls below 26°C?",
+                "prompt": "What is the probability that the temperature falls below 23°C?",
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
