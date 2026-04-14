@@ -20,5 +20,3 @@ The graph can be interpreted as follows:
 
 <img style="" src="./incentives-dm/assets/img/tutorial/tutorial-03-ci.png" alt="dist-explanation" width="37.5%"/><br/>
 
-<img style="" src="./incentives-dm/assets/img/tutorial/tutorial-04-ci.png" alt="dist-interval66_95-explanation" width="66.5%"/>
-

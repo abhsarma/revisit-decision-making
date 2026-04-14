@@ -132,7 +132,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["5", "10", "7", "15"]
+                "options": ["3", "10", "15", "80"]
             }],
             "correctAnswer": [{"id": "trainingProb-1", "answer": 10}], 
             "helpTextPath": "incentives-dm/assets/help-ci.md"
@@ -146,7 +146,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["15", "25", "20", "30"]
+                "options": ["15", "25", "65", "80"]
             }],
             "correctAnswer": [{"id": "trainingProb-2", "answer": 25}], 
             "helpTextPath": "incentives-dm/assets/help-ci.md"
@@ -160,7 +160,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["55", "60", "65", "70"]
+                "options": ["40", "60", "65", "50"]
             }],
             "correctAnswer": [{"id": "trainingProb-3", "answer": 60}], 
             "helpTextPath": "incentives-dm/assets/help-ci.md"
@@ -174,7 +174,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["89", "95", "92", "99"]
+                "options": ["7", "95", "15", "99"]
             }],
             "correctAnswer": [{"id": "trainingProb-4", "answer": 95}], 
             "helpTextPath": "incentives-dm/assets/help-ci.md"
@@ -188,7 +188,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["5", "10", "7", "15"]
+                "options": ["3", "10", "15", "80"]
             }],
             "correctAnswer": [{"id": "trainingProb-1", "answer": 10}], 
             "helpTextPath": "incentives-dm/assets/help-dens.md"
@@ -202,7 +202,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["15", "25", "20", "30"]
+                "options": ["15", "25", "65", "80"]
             }],
             "correctAnswer": [{"id": "trainingProb-2", "answer": 25}], 
             "helpTextPath": "incentives-dm/assets/help-dens.md"
@@ -216,7 +216,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["55", "60", "65", "70"]
+                "options": ["40", "60", "65", "50"]
             }],
             "correctAnswer": [{"id": "trainingProb-3", "answer": 60}], 
             "helpTextPath": "incentives-dm/assets/help-dens.md"
@@ -230,7 +230,7 @@
                 "type": "radio",
                 "optionOrder": "random",
                 "horizontal": true,
-                "options": ["89", "95", "92", "99"]
+                "options": ["7", "95", "15", "99"]
             }],
             "correctAnswer": [{"id": "trainingProb-4", "answer": 95}], 
             "helpTextPath": "incentives-dm/assets/help-dens.md"
