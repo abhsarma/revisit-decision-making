@@ -146,6 +146,7 @@ function DisplayTrial({ parameters, setAnswer, answers }: StimulusParams<TrialPa
     const computedTrialIndex = currentTrialOrder - introPageCount + 1 - adjust;
     return computedTrialIndex < 1 ? 1 : computedTrialIndex;
   })();
+
   const previousAnswer: PreviousAnswerSummary | null = (() => {
     if (!current) {
       return null;
@@ -185,7 +186,19 @@ function DisplayTrial({ parameters, setAnswer, answers }: StimulusParams<TrialPa
 
     budget = previousAnswer.startingBudget - cost;
 
-    prevResultText = `In the previous trial you decided to ${decision} the roads. The actual temperature was ${temp}°C. The cost incurred was $${cost}.`;
+    if (!current) {
+      return null;
+    }
+    const currentTrialOrder = Number(current.trialOrder);
+
+    let previous = Object.values(answers).find((value) => Number(value.trialOrder) === currentTrialOrder - 1);
+
+    if (attentionCheckIndices.includes(currentTrialOrder - 1)){
+      let tempAttnCheck = previous?.parameters.index == -2 ? 11 : -11;
+      prevResultText = `In the previous trial the actual temperature was ${tempAttnCheck}°C.`;
+    } else {
+      prevResultText = `In the previous trial you decided to ${decision} the roads. The actual temperature was ${temp}°C. The cost incurred was $${cost}.`;
+    }
   }
 
   const simulatedResult = useMemo(() => {
@@ -197,6 +210,7 @@ function DisplayTrial({ parameters, setAnswer, answers }: StimulusParams<TrialPa
     const tempSd = TEMP_STANDARD_DEVIATIONS[index - 1];
     const [seed] = cyrb128(`${prolificId}_${index}`);
     const simulated = rnorm(seed) * tempSd + tempMean;
+    console.log(rnorm(seed), tempMean, tempSd);
 
     return {
       seed,
