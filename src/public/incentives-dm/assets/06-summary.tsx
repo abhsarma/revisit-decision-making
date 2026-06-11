@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { StoredAnswer, StimulusParams } from '../../../store/types';
 import '../../styles/incentives.css';
+import { useNextStep } from '../../../store/hooks/useNextStep';
 
 type SimulatedResult = {
   simulated: number;
@@ -53,6 +54,12 @@ function DisplayTrial({ parameters, answers }: StimulusParams<{inc: string}>) {
   const awardText = inc === 'base' ? '' : ` This translates to a bonus of $${bonus}.`;
   const incText = (inc === 'base' || budget > 0) ? '' : `Please do not worry if you have a negative budget. You are still guaranteed the minimum amount of $${incAmount}.`;
 
+  const { goToNextStep } = useNextStep();
+  
+  setTimeout(() => {
+      goToNextStep();
+  }, 3000);
+
   return (
     <div className="chart-wrapper">
       <p>
@@ -65,7 +72,6 @@ function DisplayTrial({ parameters, answers }: StimulusParams<{inc: string}>) {
         <span id="actual-award">{awardText}</span>
       </p>
       <p>{incText}</p>
-      <p>Please answer the following open-ended questions regarding your experience in performing the tasks in this survey.</p>
     </div>
   );
 }
