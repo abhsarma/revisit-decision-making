@@ -210,7 +210,7 @@ function DisplayTrial({ parameters, setAnswer, answers }: StimulusParams<TrialPa
     const tempSd = TEMP_STANDARD_DEVIATIONS[index - 1];
     const [seed] = cyrb128(`${prolificId}_${index}`);
     const simulated = rnorm(seed) * tempSd + tempMean;
-    console.log(rnorm(seed), tempMean, tempSd);
+    // console.log(rnorm(seed), tempMean, tempSd);
 
     return {
       seed,
