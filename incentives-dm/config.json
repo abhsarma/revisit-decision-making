@@ -295,36 +295,6 @@
                 "hidden": true,
                 "paramCapture": "PROLIFIC_PID",
                 "type": "reactive"
-            }, {
-                "id": "qual-strategy",
-                "prompt": "Please describe the strategy that you used in deciding whether or not to send salt",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "longText"
-            }, {
-                "id": "qual-incentive-freq",
-                "prompt": "How often do you encounter surveys with performance-based bonuses?",
-                "secondaryText": "Decision-making studies such as this one often include performance-based bonuses (for example, instead of a guaranteed amount of $3, you would have been paid a guaranteed amount of $1.5, and awarded a bonus of $0.5 for every $1000 left in a bank account).",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "likert",
-                "numItems": 5,
-                "leftLabel": "Never",
-                "rightLabel": "Very Often",
-                "labelLocation": "inline"
-            }, {
-                "id": "qual-incentives-history",
-                "prompt": "If you have encountered performance-based bonuses in surveys previously, what has been your experience with receiving such bonuses?",
-                "secondaryText": "If you have not encountered performance-based bonuses in surveys, please write 'N/A' in the text box",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "longText"
-            }, {
-                "id": "qual-incentive-effect",
-                "prompt": "If you would have been paid a guaranteed amount of $1.5 and awarded a bonus of $0.5 for every $1000 left in a bank account (instead of the guaranteed amount of $3), how do you think your performance would have changed?",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "longText"
             }]
         },
         "qual-q-inc": {
@@ -337,35 +307,6 @@
                 "hidden": true,
                 "paramCapture": "PROLIFIC_PID",
                 "type": "reactive"
-            },{
-                "id": "qual-strategy",
-                "prompt": "Please describe the strategy that you used in deciding whether or not to send salt",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "longText"
-            }, {
-                "id": "qual-incentive-freq",
-                "prompt": "How often do you encounter surveys with performance-based bonuses?",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "likert",
-                "numItems": 5,
-                "leftLabel": "Never",
-                "rightLabel": "Very Often",
-                "labelLocation": "inline"
-            }, {
-                "id": "qual-incentives-history",
-                "prompt": "If you have encountered performance-based bonuses in surveys previously, what has been your experience with receiving such bonuses?",
-                "secondaryText": "If you have not encountered performance-based bonuses in surveys, please write 'N/A' in the text box",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "longText"
-            }, {
-                "id": "qual-incentive-effect",
-                "prompt": "If you were given a guaranteed amount of $3 (instead of the current reward structure——guaranteed amount of $1.5 and bonus of $0.5 for every $1000 left in a bank account that you received), how do you think your performance would have changed?",
-                "required": true,
-                "location": "belowStimulus",
-                "type": "longText"
             }]
         }
     },
@@ -471,7 +412,8 @@
                     {"spacing": "random", "numInterruptions": 1, "components": ["attnCheck-low-dens"]},
                     {"spacing": "random", "numInterruptions": 1, "components": ["attnCheck-high-dens"]}
                 ]
-            }, {
+            }
+            , {
                 "id": "base",
                 "conditional": true,
                 "order": "fixed",
