@@ -195,7 +195,7 @@ function DisplayTrial({ parameters, setAnswer, answers }: StimulusParams<TrialPa
 
     if (attentionCheckIndices.includes(currentTrialOrder - 1)){
       let tempAttnCheck = previous?.parameters.index == -2 ? 11 : -11;
-      prevResultText = `In the previous trial the actual temperature was ${tempAttnCheck}°C.`;
+      prevResultText = `In the previous trial the actual temperature was ${tempAttnCheck}°C. The previous trial's result will not affect your budget`;
     } else {
       prevResultText = `In the previous trial you decided to ${decision} the roads. The actual temperature was ${temp}°C. The cost incurred was $${cost}.`;
     }

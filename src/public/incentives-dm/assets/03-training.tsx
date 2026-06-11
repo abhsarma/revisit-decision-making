@@ -11,10 +11,7 @@ function DisplayTrial({ parameters }: StimulusParams<{ index: number; vis: strin
   return (
     <div className="chart-wrapper">
 
-      <h2>
-        Training Trial #
-        {index}
-      </h2>
+      <h2>Training Trial</h2>
       <p>
         <img src={imgURL} alt={trainingIdx} width="70%" />
         <br />
