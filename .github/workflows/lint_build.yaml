@@ -11,4 +11,4 @@ on:
 
 jobs:
   lint:
-    # uses: revisit-studies/.github/.github/workflows/lint.yaml@main
+    uses: revisit-studies/.github/.github/workflows/lint.yaml@main
