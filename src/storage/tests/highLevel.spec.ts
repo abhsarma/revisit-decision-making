@@ -12,7 +12,6 @@ import { Sequence, StoredAnswer, TrrackedProvenance } from '../../store/types';
 import { LocalStorageEngine } from '../engines/LocalStorageEngine';
 import { StorageEngine, StorageObject, StorageObjectType } from '../engines/types';
 import { filterSequenceByCondition } from '../../utils/handleConditionLogic';
-// import { SupabaseStorageEngine } from '../engines/SupabaseStorageEngine';
 
 const studyId = 'test-study';
 const configSimple = testConfigSimple as StudyConfig;
@@ -31,7 +30,7 @@ const conditionalLatinSquareConfig: StudyConfig = {
     version: '1.0.0',
     authors: ['Test Author'],
     description: 'A study config for testing conditional latin square balancing.',
-    date: '2026-02-23',
+    date: '2026-04-08',
     organizations: ['Test Organization'],
   },
   uiConfig: {
@@ -236,8 +235,6 @@ class DeferredInitialWriteLocalStorageEngine extends DelayedLocalStorageEngine {
 
 describe.each([
   { TestEngine: LocalStorageEngine },
-  // { TestEngine: SupabaseStorageEngine }, // Uncomment to test with Supabase
-  // { TestEngine: FirebaseStorageEngine }, TODO
 ])('describe object $TestEngine', ({ TestEngine }) => {
   let storageEngine: StorageEngine;
   let sequenceArray: Sequence[];
@@ -305,6 +302,25 @@ describe.each([
     expect(pushSpy).not.toHaveBeenCalled();
     expect(deleteSpy).not.toHaveBeenCalled();
     expect(setHashSpy).not.toHaveBeenCalled();
+  });
+
+  test('saveConfig restores missing config storage when the hash pointer is unchanged', async () => {
+    const configHash = await hash(JSON.stringify(configSimple));
+    await storageEngine.saveConfig(configSimple);
+
+    await (
+      storageEngine as unknown as {
+        _deleteFromStorage: StorageEngine['_deleteFromStorage'];
+      }
+    )._deleteFromStorage(`configs/${configHash}`, 'config');
+
+    let storedHashes = await storageEngine.getAllConfigsFromHash([configHash], studyId);
+    expect(storedHashes[configHash]).toBeNull();
+
+    await storageEngine.saveConfig(configSimple);
+
+    storedHashes = await storageEngine.getAllConfigsFromHash([configHash], studyId);
+    expect(storedHashes[configHash]).toEqual(configSimple);
   });
 
   test('getCurrentParticipantId returns the current participant ID', async () => {
